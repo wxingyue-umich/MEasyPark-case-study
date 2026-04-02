@@ -26,7 +26,9 @@
 }
 
 /* ===== Reset ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -405,7 +407,8 @@ section {
 .solution-icon img {
   width: 20px;
   height: 20px;
-  filter: invert(1);    /* 白色图标 */
+  filter: invert(1);
+  /* 白色图标 */
 }
 
 .solution-card h4 {
@@ -439,7 +442,7 @@ section {
 .solution-mockup-wrapper img {
   width: 75%;
   height: auto;
-  filter: drop-shadow(0 12px 32px rgba(0,0,0,0.18));
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.18));
 }
 
 /* 下半：Design Principles */
@@ -665,6 +668,7 @@ section {
   .principles-grid {
     gap: 20px;
   }
+
   .principle-card p {
     max-width: 180px;
   }
@@ -789,7 +793,7 @@ section {
   display: flex;
   gap: 20px;
   margin-top: 36px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .process-card {
@@ -803,6 +807,7 @@ section {
   flex-direction: column;
   gap: 12px;
   position: relative;
+  justify-content: flex-start;
 }
 
 /* 黄色数字角标 */
@@ -845,6 +850,7 @@ section {
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -878,7 +884,8 @@ section {
   }
 
   .process-card {
-    flex: 0 0 calc(50% - 10px);  /* 2列 */
+    flex: 0 0 calc(50% - 10px);
+    /* 2列 */
   }
 }
 
@@ -890,5 +897,178 @@ section {
   .process-card {
     flex: unset;
     width: 100%;
+  }
+}
+
+/* ===== RESEARCH ===== */
+.interviews-header {
+  margin-top: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.interviews-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.interviews-description {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+  text-align: center;
+}
+
+/* 3列 grid */
+.interview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* 单张卡片 */
+.interview-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 卡片顶部蓝色 header */
+.interview-card-header {
+  background: #2c4a7c;
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  text-align: center;
+}
+
+/* 中间色（Interviewee 2 & 5） */
+.interview-card-header--mid {
+  background: #1b5fa8;
+}
+
+/* 引用文字 */
+.interview-card blockquote {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--color-text-primary);
+  line-height: 1.75;
+  padding: 32px 24px;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .interview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .interview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interviews-description {
+    text-align: left;
+  }
+}
+
+/* ===== PERSONAS ===== */
+.personas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.personas .interviews-title {
+  text-align: center;
+}
+
+.personas .interviews-description {
+  text-align: center;
+}
+
+/* 每个 persona 区块 */
+.persona-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 32px;
+}
+
+/* 深蓝 banner 标题 */
+.persona-banner {
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  padding: 18px 24px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.persona-banner--primary {
+  background: linear-gradient(90deg, #1b3a6b 0%, #2e6fbd 100%);
+}
+
+.persona-banner--secondary {
+  background: linear-gradient(90deg, #1b3a6b 0%, #1e4d8c 100%);
+}
+
+/* 卡片容器：连接 banner 底部 */
+.persona-card {
+  background: var(--color-white);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  border-top: none;
+  padding: 16px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.persona-card-label {
+  font-size: 11px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+/* persona 内容图片（整体导出） */
+.persona-content-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .persona-banner {
+    font-size: 12px;
+    padding: 14px 16px;
+  }
+
+  .persona-card {
+    padding: 12px 14px 16px 14px;
   }
 }
